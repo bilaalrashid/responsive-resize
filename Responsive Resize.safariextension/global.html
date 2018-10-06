@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8" />
+	    <title>responsive Resize v2.0</title>
+	    <script type="text/javascript">
+	        safari.application.addEventListener("command", performCommand, true);
+
+	        function performCommand(event) {
+	            if (event.command === "resizeWindow") {
+	                const bars = safari.extension.bars;
+	                const activeBrowserWindow = safari.application.activeBrowserWindow;
+
+	                for (i = 0; i < bars.length; i++) {
+	                    var bar = bars[i];
+
+	                    if (bar.browserWindow === activeBrowserWindow && bar.identifier === "resizeBar") {
+	                        if (bar.visible === true) {
+	                            bar.hide();
+	                        } else {
+	                            bar.show();
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    </script>
+	</head>
+	<body>
+
+	</body>
+</html>
